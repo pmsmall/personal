@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="net.personal.dao.MailAuthMapper">
+	<select id="selectFirstMailTemplet" resultType="mailTemplet">
+		select * from mail_templet limit 1
+	</select>
+
+	<select id="selectFirstMailConfig" resultType="mailConfig">
+		select * from mail_config limit 1
+	</select>
+</mapper>
