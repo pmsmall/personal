@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.personal.dao.UserMapper">
+	<select id="selectUserSamply" parameterType="sampleUser"
+		resultType="User">
+		select * from user where phone=#{phone,jdbcType=VARCHAR} and
+		password=#{password,jdbcType=VARCHAR}
+	</select>
+
+	<select id="selectPhone">
+		select count(*) from user
+		where phone=#{phone,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="insertUserSamply" parameterType="sampleUser">
+		insert into user (
+			phone,
+			password
+		)
+		select
+			#{phone,jdbcType=VARCHAR},
+			#{password,jdbcType=VARCHAR}
+		from dual
+		where
+			not exists (
+			select *
+				from user
+			where
+				phone = #{phone,jdbcType=VARCHAR}
+			)
+	</insert>
+</mapper>
