@@ -14,9 +14,14 @@ public class MailDevice {
 	private static int keepAliveTime = 3;
 	private static TimeUnit keepAliveTimeUnit = TimeUnit.SECONDS;
 
-	public MailDevice(MailBox defaultMailBox) {
+	public MailDevice(MailBox defaultMailBox, int corePoolSize, int maximumPoolSize, long keepAliveTime,
+			TimeUnit unit) {
 		this(defaultMailBox, new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, keepAliveTimeUnit,
 				new LinkedBlockingQueue<>()));
+	}
+
+	public MailDevice(MailBox defaultMailBox) {
+		this(defaultMailBox, corePoolSize, maximumPoolSize, keepAliveTime, keepAliveTimeUnit);
 	}
 
 	public MailDevice(MailBox defaultMailBox, ThreadPoolExecutor pool) {
@@ -67,5 +72,15 @@ public class MailDevice {
 				}
 			}
 		});
+	}
+
+	public void shutdown() {
+		pool.shutdown();
+	}
+
+	public void dispose() {
+		if (!pool.isShutdown())
+			shutdown();
+		pool.getQueue().clear();
 	}
 }

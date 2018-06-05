@@ -6,5 +6,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias alias="user" type="net.personal.pojo.User" />
 		<typeAlias alias="sampleUser" type="net.personal.pojo.SampleUser" />
+		<typeAlias alias="mailTemplet" type="net.personal.pojo.MailTemplet" />
+		<typeAlias alias="mailConfig" type="net.personal.pojo.MailConfig" />
 	</typeAliases>
 </configuration>

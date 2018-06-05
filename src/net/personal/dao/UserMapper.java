@@ -6,7 +6,9 @@ import net.personal.pojo.User;
 public interface UserMapper {
 	public User selectUserSamply(SampleUser user);
 
-	public int selectPhone(String phone);
+	public User selectUserByMail(String mail);
+
+	public int selectMail(String phone);
 
 	public int insertUserSamply(SampleUser user);
 }

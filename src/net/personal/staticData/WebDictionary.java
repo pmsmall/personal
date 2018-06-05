@@ -32,8 +32,22 @@ public class WebDictionary {
 	public static final String WEBSOCKET_USERNAME = "ws_session_name";
 
 	public static final String STATUS_FIELD = "status";
-	
+
 	public static final String PHONE_FIELD = "phone";
-	
+
+	public static final String MAIL_FIELD = "mail";
+
+	public static final String PASSWORD_FIELD = "password";
+
 	public static final String STATE_FIELD = "state";
+
+	public static final String AUTHENTICATIONCODE = "AutoCode";
+
+	public static final String REASON_FILED = "reason";
+
+	public static final String LOGIN_FILED = "login";
+
+	public static final String REGISTER_FILED = "register";
+
+	public static final String MESSAGE_FILED = "message";
 }

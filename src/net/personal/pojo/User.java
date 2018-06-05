@@ -21,10 +21,10 @@ public class User extends SampleUser {
 	}
 
 	public static boolean validateUser(SampleUser user) {
-		return validatePhone(user.getPhone()) && validatePassword(user.getPassword());
+		return validateMail(user.getMail()) && validatePassword(user.getPassword());
 	}
 
-	private static boolean validatePhone(String phone) {
+	public static boolean validatePhone(String phone) {
 		if (phone == null)
 			return false;
 		int len = phone.length();
@@ -51,6 +51,27 @@ public class User extends SampleUser {
 	private static boolean validatePassword(String password) {
 		if (password == null)
 			return false;
+		return true;
+	}
+
+	public static boolean validateMail(String mail) {
+		int index = mail.indexOf("@");
+		if (mail.indexOf("@", index + 1) != -1) {
+			return false;
+		}
+		int len = mail.length();
+		if (mail.codePointCount(index, len - 1) < 1)
+			return false;
+		for (int i = 0; i < index; i++) {
+			char c = mail.charAt(i);
+			if (!((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
+				return false;
+		}
+		for (int i = index + 1; i < len; i++) {
+			char c = mail.charAt(i);
+			if (!((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
+				return false;
+		}
 		return true;
 	}
 }

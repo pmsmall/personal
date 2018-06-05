@@ -25,8 +25,8 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 	@Override
-	public boolean registerCheck(String phone) {
-		return userMapper.selectPhone(phone) == 0;
+	public boolean registerCheck(String mail) {
+		return userMapper.selectMail(mail) == 0;
 	}
 
 	@Override
@@ -39,6 +39,11 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public User getLoginedUser(SampleUser user) {
 		return userMapper.selectUserSamply(user);
+	}
+
+	@Override
+	public User getLoginedUserByMail(String mail) {
+		return userMapper.selectUserByMail(mail);
 	}
 
 }

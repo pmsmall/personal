@@ -3,22 +3,26 @@
 <mapper namespace="net.personal.dao.UserMapper">
 	<select id="selectUserSamply" parameterType="sampleUser"
 		resultType="User">
-		select * from user where phone=#{phone,jdbcType=VARCHAR} and
+		select * from user where mail=#{mail,jdbcType=VARCHAR} and
 		password=#{password,jdbcType=VARCHAR}
 	</select>
+	
+	<select id="selectUserByMail" resultType="User">
+		select * from user where mail=#{mail,jdbcType=VARCHAR}
+	</select>
 
-	<select id="selectPhone">
+	<select id="selectMail">
 		select count(*) from user
-		where phone=#{phone,jdbcType=VARCHAR}
+		where mail=#{mail,jdbcType=VARCHAR}
 	</select>
 
 	<insert id="insertUserSamply" parameterType="sampleUser">
 		insert into user (
-			phone,
+			mail,
 			password
 		)
 		select
-			#{phone,jdbcType=VARCHAR},
+			#{mail,jdbcType=VARCHAR},
 			#{password,jdbcType=VARCHAR}
 		from dual
 		where
@@ -26,7 +30,7 @@
 			select *
 				from user
 			where
-				phone = #{phone,jdbcType=VARCHAR}
+				mail = #{mail,jdbcType=VARCHAR}
 			)
 	</insert>
 </mapper>

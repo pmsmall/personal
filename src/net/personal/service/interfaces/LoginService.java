@@ -11,6 +11,8 @@ public interface LoginService {
 	public boolean registerCheck(String phone);
 
 	public boolean register(SampleUser user, Timestamp time);
-	
+
 	public User getLoginedUser(SampleUser user);
+
+	public User getLoginedUserByMail(String mail);
 }
