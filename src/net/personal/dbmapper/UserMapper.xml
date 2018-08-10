@@ -11,7 +11,7 @@
 		select * from user where mail=#{mail,jdbcType=VARCHAR}
 	</select>
 
-	<select id="selectMail">
+	<select id="selectMail" resultType="java.lang.Integer">
 		select count(*) from user
 		where mail=#{mail,jdbcType=VARCHAR}
 	</select>

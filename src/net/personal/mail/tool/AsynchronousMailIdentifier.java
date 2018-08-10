@@ -53,7 +53,7 @@ public class AsynchronousMailIdentifier implements MailIdentifier {
 	public AuthenticationCode getAuthenticationCode(String mailAddress) throws AddressException {
 		String code = getAuthenticationCode();
 		MailTemplet templet = authenticationService.getMailTemplet();
-		Mail mail = new Mail(templet.getTitle(), templet.getContent("{{code}}", code));
+		Mail mail = new Mail(templet.getTitle(), templet.getContent("\\{\\{code\\}\\}", code));
 		mail.addRecipients(new InternetAddress(mailAddress));
 		device.send(mail);
 		return new MailAuthenticationCode(code);
@@ -71,6 +71,10 @@ public class AsynchronousMailIdentifier implements MailIdentifier {
 			return this.code.equals(code);
 		}
 
+		@Override
+		public String toString() {
+			return code;
+		}
 	}
 
 }

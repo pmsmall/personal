@@ -41,7 +41,7 @@ public class WebDictionary {
 
 	public static final String STATE_FIELD = "state";
 
-	public static final String AUTHENTICATIONCODE = "AutoCode";
+	public static final String AUTHENTICATIONCODE = "authCode";
 
 	public static final String REASON_FILED = "reason";
 
@@ -50,4 +50,8 @@ public class WebDictionary {
 	public static final String REGISTER_FILED = "register";
 
 	public static final String MESSAGE_FILED = "message";
+
+	public static final String UPLOAD_PATH = "upload/";
+
+	public static final String HOST = "/personal/";
 }

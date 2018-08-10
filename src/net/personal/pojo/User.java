@@ -57,19 +57,22 @@ public class User extends SampleUser {
 	public static boolean validateMail(String mail) {
 		int index = mail.indexOf("@");
 		if (mail.indexOf("@", index + 1) != -1) {
+			System.out.println(1);
 			return false;
 		}
 		int len = mail.length();
-		if (mail.codePointCount(index, len - 1) < 1)
+		if (mail.codePointCount(index, len - 1) < 1) {
+			System.out.println(2);
 			return false;
+		}
 		for (int i = 0; i < index; i++) {
 			char c = mail.charAt(i);
-			if (!((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
+			if (!((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '.'))
 				return false;
 		}
 		for (int i = index + 1; i < len; i++) {
 			char c = mail.charAt(i);
-			if (!((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
+			if (!((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '.'))
 				return false;
 		}
 		return true;

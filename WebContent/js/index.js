@@ -1,6 +1,8 @@
 function autoAdjustFormMarginTop() {
 	var form = $(".form");
 	var height = form.outerHeight();
+	console.log(height)
+	height = form.outerHeight();
 	form.css("margin-top", -height / 2);
 }
 
@@ -66,6 +68,24 @@ $(document).ready(function() {
 	if(window != top)
 		top.location.href = location.href;
 	hashchangeHandle(true);
-	//autoAdjustFormMarginTop();
 	$(window).on("hashchange", hashchangeHandle);
+	var change = $('#loginform .forgot a');
+	if(change === '快速登录') {
+		$('.useMail').css("display", "");
+		$('.usePwd').css('display', 'none');
+	} else {
+		$('.useMail').css("display", "none");
+		$('.usePwd').css('display', '');
+	}
+	change.on('click', function(event) {
+		if(event.target.innerText === '快速登录') {
+			$('.useMail').css("display", "");
+			$('.usePwd').css('display', 'none');
+			event.target.innerText = '密码登录'
+		} else {
+			$('.useMail').css("display", "none");
+			$('.usePwd').css('display', '');
+			event.target.innerText = '快速登录'
+		}
+	})
 });

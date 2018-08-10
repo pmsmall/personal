@@ -3,9 +3,18 @@ package net.personal.pojo;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class MailTemplet {
+	private int id;
 	private String title;
 	private String content;
 	private ConcurrentHashMap<String, String[]> fragments = new ConcurrentHashMap<>();
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getTitle() {
 		return title;
@@ -27,11 +36,11 @@ public class MailTemplet {
 		}
 		String content = "";
 		int len = fragment.length;
-		for (int i = 0; i < len; i++) {
+		for (int i = 0; i < len - 1; i++) {
 			content += fragment[i] + placement;
 		}
 		if (len > 0)
-			content += fragment[len];
+			content += fragment[len - 1];
 		return content;
 	}
 

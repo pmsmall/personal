@@ -3,6 +3,7 @@ package net.personal.pojo;
 import java.util.concurrent.TimeUnit;
 
 public class MailConfig {
+	private int id;
 	private String user;
 	private String password;
 	private String host;
@@ -12,6 +13,14 @@ public class MailConfig {
 	private int maximumPoolSize;
 	private long keepAliveTime;
 	private TimeUnit unit;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getUser() {
 		return user;
@@ -70,10 +79,6 @@ public class MailConfig {
 	}
 
 	public boolean isUseSSL() {
-		return useSSL;
-	}
-
-	public boolean getUseSSL() {
 		return useSSL;
 	}
 
