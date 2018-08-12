@@ -10,3 +10,4 @@ Using Spring, Spring MVC, Mybatis in back-end.
 + Having a blog.
 + Using BaiduMap API to show the locations of users.
 + Friedly UI design.
++ Using SMTP for e-mail verification.
